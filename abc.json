@@ -1,0 +1,13 @@
+{
+    "name": "city-selector",
+    "version": "1.0",
+    "desc": "基于kissy 1.3的城市选择器，支持国内和国际城市",
+    "cover": "",
+    "author": {
+        "name": "baxian",
+        "email": "freyaoo@gmail.com",
+        "page": "https://github.com/enmaai"
+    },
+    "type": "kissy-pie",
+    "type-url": "http://abc.alibaba-inc.com/r/kissy-pie"
+}
