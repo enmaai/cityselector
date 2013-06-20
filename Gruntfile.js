@@ -29,6 +29,12 @@ module.exports = function(grunt) {
                     {
                         src: "<%= pkg.version %>/index.js",
                         dest: "<%= pkg.version %>/build/index.js"
+                    },{
+                        src : '<%= pkg.version %>/domestic.js',
+                        dest : '<%= pkg.version %>/build/domestic.js'
+                    },{
+                        src : '<%= pkg.version %>/foreign.js',
+                        dest : '<%= pkg.version %>/build/foreign.js'
                     }
                 ]
             }
@@ -44,7 +50,9 @@ module.exports = function(grunt) {
             },
             base: {
                 files: {
-                    '<%= pkg.version %>/build/index-min.js': ['<%= pkg.version %>/build/index.js']
+                    '<%= pkg.version %>/build/index-min.js': ['<%= pkg.version %>/build/index.js'],
+                    '<%= pkg.version %>/build/domestic-min.js': ['<%= pkg.version %>/build/domestic.js'],
+                    '<%= pkg.version %>/build/foreign-min.js': ['<%= pkg.version %>/build/foreign.js']        
                 }
             }
         }

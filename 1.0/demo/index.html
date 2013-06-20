@@ -2,12 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>demo标题</title>
-    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy-min.js" charset="utf-8"></script>
+    <title>city-selector demo</title>
+    <link rel="stylesheet" href="http://a.tbcdn.cn/s/kissy/1.3.0/css/dpl/base-min.css">
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js" charset="utf-8"></script>
+    <style>
+    body{padding:20px;}
+    </style>
 </head>
 <body>
-<h2>demo标题</h2>
-
+<h2>city-selector demo</h2>
 <script>
     var S = KISSY;
     if (S.Config.debug) {
@@ -23,10 +26,49 @@
             ]
         });
     }
-
-    S.use('gallery/city-selector/1.0/index', function (S, City-selector) {
-         var city-selector = new City-selector();
-    })
 </script>
+<div id="content">
+    <h3 class="s-title">demo1:使用overlay模式</h3>
+    <div class="s-section s-demo">
+        <input type="text" id="foo" style="width:200px">
+        <script>
+            KISSY.use('gallery/city-selector/1.0/index',function(S,CitySelector){
+                var tmp = new CitySelector({
+                  canProvinceSelect : true,
+                  node : '#foo'
+                });
+            });
+        </script>
+    </div>
+    <h3 class="s-title">demo2:使用指定容器模式</h3>
+    <div class="s-section s-demo">
+        <input type="text" id="foo1" style="width:200px">
+        <div id="con1"></div>
+        <script>
+            KISSY.use('gallery/city-selector/1.0/index',function(S,CitySelector){
+                var tmp = new CitySelector({
+                  render : '#con1',
+                  node : '#foo1'
+                });
+            });
+        </script>
+    </div>
+    <h3 class="s-title">demo3:多选</h3>
+    <div class="s-section s-demo">
+        <input type="text" id="foo2" style="width:500px">
+        <div id="con2"></div>
+        <script>
+            KISSY.use('gallery/city-selector/1.0/foreign,gallery/city-selector/1.0/index',function(S,DomesticData,CitySelector){
+                var tmp = new CitySelector({
+                  data : DomesticData,
+                  canProvinceSelect : true,
+                  mutiple : true,
+                  render : '#con2',
+                  node : '#foo2'
+                });
+            });
+        </script>
+    </div>
+</div>
 </body>
 </html>
