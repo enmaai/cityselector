@@ -36,26 +36,26 @@ KISSY.add('gallery/city-selector/1.0/index',function(S,Node,Event,Richbase,Overl
         CITY = 'city',
         DISABLEDCLS = 'ks-city-selector-disabled',
         LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-        TMPL = new Xtpl('<div class="{{prefix}}city-selector {{#if provinceselect}}ks-city-selector-province-select{/if}" id="{{prefix}}city-selector{{id}}" style="width:{{width}}px;height:{{height}}px;">'+'<div class="ks-city-selector-content">'+
-            '<div class="ks-city-selector-nav" id="ks-city-selector{{id}}-nav">'+
-                '<span class="ks-city-selector-all ks-city-selector-cur ks-city-selector-letter-filter" id="ks-city-selector{{id}}-letter-all" data-value="all">全部</span>'+
-                '{{#each letters as item}}<span id="ks-city-selector{{id}}-letter-{{item.name}}" data-value="{{item.name}}" class="ks-city-selector-letter-filter{@if item.disabled}} ks-city-selector-disabled{@/if}}">{{item.name}}</span>{@/each}}'+
+        TMPL = new Xtpl('<div class="{{prefix}}city-selector {{#if provinceselect}}ks-city-selector-province-select{{/if}}" id="{{prefix}}city-selector{{uniqueId}}" style="width:{{width}}px;height:{{height}}px;">'+'<div class="ks-city-selector-content">'+
+            '<div class="ks-city-selector-nav" id="ks-city-selector{{uniqueId}}-nav">'+
+                '<span class="ks-city-selector-all ks-city-selector-cur ks-city-selector-letter-filter" id="ks-city-selector{{uniqueId}}-letter-all" data-value="all">全部</span>'+
+                '{{#each letters}}<span id="ks-city-selector{{uniqueId}}-letter-{{name}}" data-value="{{name}}" class="ks-city-selector-letter-filter{{#if disabled}} ks-city-selector-disabled{{/if}}">{{name}}</span>{{/each}}'+
             '</div>' +
-            '<div class="ks-city-selector-citylist" id="ks-city-selector{{id}}-citylist" style="height:{{listheight}}px;"><ul>' +
-                '{@each data as item}}<li class="ks-city-selector-province-{{item.firstLetter}}{@if !item.city}} ks-city-selector-nocity{@/if}}">'+
+            '<div class="ks-city-selector-citylist" id="ks-city-selector{{uniqueId}}-citylist" style="height:{{listheight}}px;"><ul>' +
+                '{{#each data}}<li class="ks-city-selector-province-{{firstLetter}}{{#if city}} {{else}} ks-city-selector-nocity{{/if}}">'+
                     '<div class="ks-city-selector-province">'+
-                        '<label for="ks-city-selector{{id}}-province-{{item.id}}">'+
-                            '<span class="ks-city-selector-letter">{{item.firstLetter}}</span>'+
-                            '<span class="ks-city-selector-province-name">{@if provinceselect}}<input type="checkbox" class="ks-city-selector-select-province" id="ks-city-selector{{id}}-province-{{item.id}}" data-id="{{item.id}}" name="ks-city-selector-province" value="{{item.name}}">{@/if}}{{item.name}}</span>'+
+                        '<label for="ks-city-selector{{uniqueId}}-province-{{provinceId}}">'+
+                            '<span class="ks-city-selector-letter">{{firstLetter}}</span>'+
+                            '<span class="ks-city-selector-province-name">{{#if provinceselect}}<input type="checkbox" class="ks-city-selector-select-province" id="ks-city-selector{{uniqueId}}-province-{{provinceId}}" data-id="{{provinceId}}" name="ks-city-selector-province" value="{{name}}">{{/if}}{{name}}</span>'+
                         '</label>'+                     
                     '</div>'+
-                    '{@if item.city}}<div class="ks-city-selector-city">'+
-                    '{@each item.city as subcity}}<span>'+
-                        '<input type="checkbox" id="ks-city-selector{{id}}-city-{{subcity.id}}" value="{{subcity.name}}" data-id="{{subcity.id}}" name="ks-city-selector-city" class="ks-city-selector-select-city">'+
-                        '<label for="ks-city-selector{{id}}-city-{{subcity.id}}">{{subcity.name}}</label>'+
-                    '</span>{@/each}}'+
-                    '</div>{@/if}}'+
-                '</li>{@/each}}' +
+                    '{{#if city}}<div class="ks-city-selector-city">'+
+                    '{{#each city}}<span>'+
+                        '<input type="checkbox" id="ks-city-selector{{uniqueId}}-city-{{cityId}}" value="{{name}}" data-id="{{cityId}}" name="ks-city-selector-city" class="ks-city-selector-select-city">'+
+                        '<label for="ks-city-selector{{uniqueId}}-city-{{cityId}}">{{name}}</label>'+
+                    '</span>{{/each}}'+
+                    '</div>{{/if}}'+
+                '</li>{{/each}}' +
             '</ul></div>'+
         '</div></div>');
     /**
@@ -143,10 +143,12 @@ KISSY.add('gallery/city-selector/1.0/index',function(S,Node,Event,Richbase,Overl
                     city = [];
                 item.firstLetter = firstLetter;
                 item.id = S.guid();
+                item.provinceId = item.id;
                 letters[firstLetter] = 1;
                 S.each(item.city,function(val){
                     city.push(val.name);
                     val.id = S.guid();
+                    val.cityId = val.id;
                     _._citys[val.name] = val.id;
                     _._formatData[val.id] = S.merge(val,{
                         type : CITY,
@@ -190,12 +192,12 @@ KISSY.add('gallery/city-selector/1.0/index',function(S,Node,Event,Richbase,Overl
                 provinceselect : this.get('canProvinceSelect'),
                 letters : tmp,
                 data : cityData,
-                id : this._id,
+                uniqueId : this._id,
                 width : w,
                 height : this.get(HEIGHT),
                 listheight : this.get(HEIGHT) - 50
             };
-            S.log(obj);
+            
             this._contentEl = S.one(TMPL.render(obj));
             this._navEl = this._contentEl.one('#ks-city-selector'+this._id+'-nav');
             this._listEl = this._contentEl.one('#ks-city-selector'+this._id+'-citylist');
@@ -254,7 +256,7 @@ KISSY.add('gallery/city-selector/1.0/index',function(S,Node,Event,Richbase,Overl
             curLetter.removeClass(CURCLS);
             tar.addClass(CURCLS);
             /**
-            当用户切换首字母是触发
+            当用户切换首字母时触发
             @event letterchange
             @param {event} e 提供用户当前选择的首字母
             <dl>
