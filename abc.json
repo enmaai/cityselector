@@ -1,5 +1,5 @@
 {
-    "name": "city-selector",
+    "name": "cityselector",
     "version": "1.0",
     "desc": "基于kissy 1.3的城市选择器，支持国内和国际城市",
     "cover": "",

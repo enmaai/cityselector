@@ -1,5 +1,5 @@
 {
-"name": "city-selector",
+"name": "cityselector",
 "version": "1.0.0",
 "devDependencies": {
     "grunt-contrib-uglify": "~0.2.0",

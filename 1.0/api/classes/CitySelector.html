@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>CitySelector - The city-selector API</title>
+    <title>CitySelector - The cityselector API</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -15,7 +15,7 @@
     <div id="hd" class="yui3-g header">
         <div class="yui3-u-3-4">
             
-                <h1><img src="../assets/css/logo.png" title="The city-selector API"></h1>
+                <h1><img src="../assets/css/logo.png" title="The cityselector API"></h1>
             
         </div>
         <div class="yui3-u-1-4 version">
@@ -47,7 +47,7 @@
 
             <ul id="api-modules" class="apis modules">
             
-                <li><a href="../modules/city-selector.html">city-selector</a></li>
+                <li><a href="../modules/cityselector.html">cityselector</a></li>
             
                 <li><a href="../modules/domestic.html">domestic</a></li>
             
@@ -106,7 +106,7 @@
 
     
         
-            Module: <a href="../modules/city-selector.html">city-selector</a>
+            Module: <a href="../modules/cityselector.html">cityselector</a>
         
     
 
@@ -119,8 +119,8 @@
     <p>城市选择器constructor</p>
 
 <pre class="code prettyprint"><code>   &lt;input id="#foo" type="text"&gt;    
-   KISSY.use('gallery/city-selector/1.1/index',function(S,DomesticData,CitySelector){
-   var city-selector = new CitySelector({
+   KISSY.use('gallery/cityselector/1.0/index',function(S,CitySelector){
+   var cityselector = new CitySelector({
        node : '#foo'
    });
 </code></pre>
@@ -1749,9 +1749,9 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>   var city-selector = new CitySelector(config);
-   city-selector.select('北京'); //会选中北京
-   city-selector.select(['北京','杭州']); //会选中北京和杭州
+                <pre class="code prettyprint"><code>   var cityselector = new CitySelector(config);
+   cityselector.select('北京'); //会选中北京
+   cityselector.select(['北京','杭州']); //会选中北京和杭州
 </code></pre>
             </div>
         </div>
@@ -1866,8 +1866,8 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>   city-selector.setLetter('x'); //选中所有以'X'为拼音首字母的省
-   city-selector.setLetter('all'); //选中全部
+                <pre class="code prettyprint"><code>   cityselector.setLetter('x'); //选中所有以'X'为拼音首字母的省
+   cityselector.setLetter('all'); //选中全部
 </code></pre>
             </div>
         </div>

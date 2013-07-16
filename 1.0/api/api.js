@@ -4,14 +4,14 @@ YUI.add("yuidoc-meta", function(Y) {
         "CitySelector"
     ],
     "modules": [
-        "city-selector",
+        "cityselector",
         "domestic",
         "foreign"
     ],
     "allModules": [
         {
-            "displayName": "city-selector",
-            "name": "city-selector",
+            "displayName": "cityselector",
+            "name": "cityselector",
             "description": "城市选择器，支持国内和国际城市，也可以自定义城市数据"
         },
         {

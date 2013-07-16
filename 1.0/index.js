@@ -1,39 +1,39 @@
 /**
 * 城市选择器，支持国内和国际城市，也可以自定义城市数据
 *
-* @module city-selector
+* @module cityselector
 * @author freyaoo@gmail.com
 * @version 1.0
 */
 KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
 	'use strict';
 
-    var CURCLS = 'ks-city-selector-cur',
-        ALLCLS = 'ks-city-selector-all',
+    var CURCLS = 'ks-cityselector-cur',
+        ALLCLS = 'ks-cityselector-all',
         WIDTH = 'width',
         HEIGHT = 'height',
         CHECKED = 'checked',
         PROVINCE = 'province',
         CITY = 'city',
-        DISABLEDCLS = 'ks-city-selector-disabled',
+        DISABLEDCLS = 'ks-cityselector-disabled',
         LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-        TMPL = new Xtpl('<div class="{{prefix}}city-selector {{#if provinceselect}}ks-city-selector-province-select{{/if}}" id="{{prefix}}city-selector{{uniqueId}}" style="width:{{width}}px;height:{{height}}px;">'+'<div class="ks-city-selector-content">'+
-            '<div class="ks-city-selector-nav" id="ks-city-selector{{uniqueId}}-nav">'+
-                '<span class="ks-city-selector-all ks-city-selector-cur ks-city-selector-letter-filter" id="ks-city-selector{{uniqueId}}-letter-all" data-value="all">全部</span>'+
-                '{{#each letters}}<span id="ks-city-selector{{uniqueId}}-letter-{{name}}" data-value="{{name}}" class="ks-city-selector-letter-filter{{#if disabled}} ks-city-selector-disabled{{/if}}">{{name}}</span>{{/each}}'+
+        TMPL = new Xtpl('<div class="{{prefix}}cityselector {{#if provinceselect}}ks-cityselector-province-select{{/if}}" id="{{prefix}}cityselector{{uniqueId}}" style="width:{{width}}px;height:{{height}}px;">'+'<div class="ks-cityselector-content">'+
+            '<div class="ks-cityselector-nav" id="ks-cityselector{{uniqueId}}-nav">'+
+                '<span class="ks-cityselector-all ks-cityselector-cur ks-cityselector-letter-filter" id="ks-cityselector{{uniqueId}}-letter-all" data-value="all">全部</span>'+
+                '{{#each letters}}<span id="ks-cityselector{{uniqueId}}-letter-{{name}}" data-value="{{name}}" class="ks-cityselector-letter-filter{{#if disabled}} ks-cityselector-disabled{{/if}}">{{name}}</span>{{/each}}'+
             '</div>' +
-            '<div class="ks-city-selector-citylist" id="ks-city-selector{{uniqueId}}-citylist" style="height:{{listheight}}px;"><ul>' +
-                '{{#each data}}<li class="ks-city-selector-province-{{firstLetter}}{{#if city}} {{else}} ks-city-selector-nocity{{/if}}">'+
-                    '<div class="ks-city-selector-province">'+
-                        '<label for="ks-city-selector{{uniqueId}}-province-{{provinceId}}">'+
-                            '<span class="ks-city-selector-letter">{{firstLetter}}</span>'+
-                            '<span class="ks-city-selector-province-name">{{#if provinceselect}}<input type="checkbox" class="ks-city-selector-select-province" id="ks-city-selector{{uniqueId}}-province-{{provinceId}}" data-id="{{provinceId}}" name="ks-city-selector-province" value="{{name}}">{{/if}}{{name}}</span>'+
+            '<div class="ks-cityselector-citylist" id="ks-cityselector{{uniqueId}}-citylist" style="height:{{listheight}}px;"><ul>' +
+                '{{#each data}}<li class="ks-cityselector-province-{{firstLetter}}{{#if city}} {{else}} ks-cityselector-nocity{{/if}}">'+
+                    '<div class="ks-cityselector-province">'+
+                        '<label for="ks-cityselector{{uniqueId}}-province-{{provinceId}}">'+
+                            '<span class="ks-cityselector-letter">{{firstLetter}}</span>'+
+                            '<span class="ks-cityselector-province-name">{{#if provinceselect}}<input type="checkbox" class="ks-cityselector-select-province" id="ks-cityselector{{uniqueId}}-province-{{provinceId}}" data-id="{{provinceId}}" name="ks-cityselector-province" value="{{name}}">{{/if}}{{name}}</span>'+
                         '</label>'+                     
                     '</div>'+
-                    '{{#if city}}<div class="ks-city-selector-city">'+
+                    '{{#if city}}<div class="ks-cityselector-city">'+
                     '{{#each city}}<span>'+
-                        '<input type="checkbox" id="ks-city-selector{{uniqueId}}-city-{{cityId}}" value="{{name}}" data-id="{{cityId}}" name="ks-city-selector-city" class="ks-city-selector-select-city">'+
-                        '<label for="ks-city-selector{{uniqueId}}-city-{{cityId}}">{{name}}</label>'+
+                        '<input type="checkbox" id="ks-cityselector{{uniqueId}}-city-{{cityId}}" value="{{name}}" data-id="{{cityId}}" name="ks-cityselector-city" class="ks-cityselector-select-city">'+
+                        '<label for="ks-cityselector{{uniqueId}}-city-{{cityId}}">{{name}}</label>'+
                     '</span>{{/each}}'+
                     '</div>{{/if}}'+
                 '</li>{{/each}}' +
@@ -43,8 +43,8 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
     * 城市选择器constructor
 
         <input id="#foo" type="text">    
-        KISSY.use('gallery/city-selector/1.1/index',function(S,DomesticData,CitySelector){
-        var city-selector = new CitySelector({
+        KISSY.use('gallery/cityselector/1.0/index',function(S,CitySelector){
+        var cityselector = new CitySelector({
             node : '#foo'
         });
 
@@ -59,11 +59,11 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
             this._node = S.one(this.get('node'));
             this._renderNode = S.one(this.get('render'));
             if(!this._node && !this._renderNode){
-                S.log('city-selector::node and render are not find,city-selector init failured!');
+                S.log('cityselector::node and render are not find,cityselector init failured!');
                 return;
             }
             if(!this.get('data')){
-            	S.log('city-selector::city-selector\'s data is undefined,city-selector init failured!');
+            	S.log('cityselector::cityselector\'s data is undefined,cityselector init failured!');
             	return;
             }
             this._id = S.guid();
@@ -91,10 +91,10 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
         */
         _bind : function(){
             var _ = this;
-            this._navEl.delegate('click','.ks-city-selector-letter-filter',this._letterFilter,this);
-            this._listEl.delegate('click','.ks-city-selector-province',this._toggleOrExpand,this);
-            this._listEl.delegate('click','.ks-city-selector-select-city',this._selectCity,this);
-            this._listEl.delegate('click','.ks-city-selector-select-province',this._selectProvince,this);
+            this._navEl.delegate('click','.ks-cityselector-letter-filter',this._letterFilter,this);
+            this._listEl.delegate('click','.ks-cityselector-province',this._toggleOrExpand,this);
+            this._listEl.delegate('click','.ks-cityselector-select-city',this._selectCity,this);
+            this._listEl.delegate('click','.ks-cityselector-select-province',this._selectProvince,this);
             if(this._overlay){
                 Event.on('body','click',function(){
                     _._overlay.hide();
@@ -180,13 +180,13 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
             };
             
             this._contentEl = S.one(TMPL.render(obj));
-            this._navEl = this._contentEl.one('#ks-city-selector'+this._id+'-nav');
-            this._listEl = this._contentEl.one('#ks-city-selector'+this._id+'-citylist');
+            this._navEl = this._contentEl.one('#ks-cityselector'+this._id+'-nav');
+            this._listEl = this._contentEl.one('#ks-cityselector'+this._id+'-citylist');
             if(this._renderNode){
                 this._renderNode.append(this._contentEl);
             }else{
                 this._overlay = new Overlay.Popup({
-                    prefixCls : 'ks-city-selector-',
+                    prefixCls : 'ks-cityselector-',
                     width : w,
                     trigger : this._node,
                     visible : false,
@@ -228,7 +228,7 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
         */
         _setLetter : function(letter){
             var curLetter = this._navEl.one('span.'+CURCLS),
-                tar = S.one('#ks-city-selector'+this._id+'-letter-'+letter),
+                tar = S.one('#ks-cityselector'+this._id+'-letter-'+letter),
                 list = this._listEl,
                 provinces = list.all('li');
             if(tar.hasClass(DISABLEDCLS)){
@@ -253,7 +253,7 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
             }                   
             
             provinces.hide();
-            this._listEl.all('li.ks-city-selector-province-'+letter).show();
+            this._listEl.all('li.ks-cityselector-province-'+letter).show();
         },
         /**
         * 收起或展开省下面的城市
@@ -265,7 +265,7 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
         _toggleOrExpand : function(e){
             var tar = S.one(e.target),
                 li = tar.parent('li');
-            li.toggleClass('ks-city-selector-expand');
+            li.toggleClass('ks-cityselector-expand');
         },
         /**
         * 根据输入框里已存在的城市选中城市选择器中的城市
@@ -388,8 +388,8 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
         * @return {CitySelector} this，当前实例
         * @example 
 
-        city-selector.setLetter('x'); //选中所有以'X'为拼音首字母的省
-        city-selector.setLetter('all'); //选中全部
+        cityselector.setLetter('x'); //选中所有以'X'为拼音首字母的省
+        cityselector.setLetter('all'); //选中全部
 
         * @chainable
         */
@@ -433,9 +433,9 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
         * @return {CitySelector} this，当前实例
         * @example
 
-        var city-selector = new CitySelector(config);
-        city-selector.select('北京'); //会选中北京
-        city-selector.select(['北京','杭州']); //会选中北京和杭州
+        var cityselector = new CitySelector(config);
+        cityselector.select('北京'); //会选中北京
+        cityselector.select(['北京','杭州']); //会选中北京和杭州
 
         * @chainable
         */
@@ -449,8 +449,8 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
                 var node,
                     type,
                     id,
-                    city = S.one('#ks-city-selector'+this._id+'-city-'+this._citys[string]),
-                    province = S.one('#ks-city-selector'+this._id+'-province-'+this._provinces[string]);
+                    city = S.one('#ks-cityselector'+this._id+'-city-'+this._citys[string]),
+                    province = S.one('#ks-cityselector'+this._id+'-province-'+this._provinces[string]);
                 if(city){
                     node = city;
                     type = CITY;
@@ -511,8 +511,8 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
                 var node,
                     type,
                     id,
-                    city = S.one('#ks-city-selector'+this._id+'-city-'+this._citys[string]),
-                    province = S.one('#ks-city-selector'+this._id+'-province-'+this._provinces[string]);
+                    city = S.one('#ks-cityselector'+this._id+'-city-'+this._citys[string]),
+                    province = S.one('#ks-cityselector'+this._id+'-province-'+this._provinces[string]);
                 if(city){
                     node = city;
                     type = CITY;

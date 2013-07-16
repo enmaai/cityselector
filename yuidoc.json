@@ -1,8 +1,8 @@
 {
-    "name": "The city-selector API",
+    "name": "The cityselector API",
     "description": "城市选择器，支持国内和国际城市",
     "version": "1.0",
-    "url": "http://gallery.kissyui.com/city-selector/1.0/guide/index.html",
+    "url": "http://gallery.kissyui.com/cityselector/1.0/guide/index.html",
     "options": {
         "outdir": "1.0/api",
         "paths" : "1.0/build"
