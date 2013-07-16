@@ -1,4 +1,7 @@
 /**
+* 国际城市数据
+
+@module foreign
 @fileoverview 国际城市数据
 @author freyaoo@gmail.com
 @version 1.0

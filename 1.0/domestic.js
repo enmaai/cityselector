@@ -1,4 +1,7 @@
 /**
+* 国内城市数据
+
+@module domestic
 @fileoverview 国内城市数据
 @author freyaoo@gmail.com
 @version 1.0
