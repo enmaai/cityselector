@@ -325,7 +325,7 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
             var val = S.trim(this._node.val()),
                 newVal = tar.val();
             if(val.indexOf(newVal) <= -1){
-                if(this.get('mutiple')){
+                if(this.get('multiple')){
                     if(val && !/,$/.test(val)){
                         this._node.val(val + ',' + newVal);
                     }else{
@@ -479,7 +479,7 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
                             raw : this._formatData[id]
                         }                    
                     });
-                    if(this.get('mutiple')){
+                    if(this.get('multiple')){
                         this._selected.push(node);
                         this._selectedValues.push(string);
                     }else{
@@ -541,7 +541,7 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
                             raw : this._formatData[id]
                         }                    
                     });
-                    if(this.get('mutiple')){
+                    if(this.get('multiple')){
                         var tmpNode = [],
                             tmpString = [],
                             selectedVal = _._selectedValues;
@@ -623,12 +623,12 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
             /**
             是否支持多选
 
-            @attribute mutiple
+            @attribute multiple
             @type boolean
             @default false
             @optional
             */
-    		mutiple : {
+    		multiple : {
     			value : false
     		},
             /**

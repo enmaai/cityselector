@@ -6,6 +6,9 @@ gallery/city-selector/1.0/index
 
 */
 /**
+* 国内城市数据
+
+@module domestic
 @fileoverview 国内城市数据
 @author freyaoo@gmail.com
 @version 1.0
@@ -344,7 +347,7 @@ KISSY.add('gallery/city-selector/1.0/index',function(S,Node,Event,Richbase,Overl
             var val = S.trim(this._node.val()),
                 newVal = tar.val();
             if(val.indexOf(newVal) <= -1){
-                if(this.get('mutiple')){
+                if(this.get('multiple')){
                     if(val && !/,$/.test(val)){
                         this._node.val(val + ',' + newVal);
                     }else{
@@ -498,7 +501,7 @@ KISSY.add('gallery/city-selector/1.0/index',function(S,Node,Event,Richbase,Overl
                             raw : this._formatData[id]
                         }                    
                     });
-                    if(this.get('mutiple')){
+                    if(this.get('multiple')){
                         this._selected.push(node);
                         this._selectedValues.push(string);
                     }else{
@@ -560,7 +563,7 @@ KISSY.add('gallery/city-selector/1.0/index',function(S,Node,Event,Richbase,Overl
                             raw : this._formatData[id]
                         }                    
                     });
-                    if(this.get('mutiple')){
+                    if(this.get('multiple')){
                         var tmpNode = [],
                             tmpString = [],
                             selectedVal = _._selectedValues;
@@ -642,12 +645,12 @@ KISSY.add('gallery/city-selector/1.0/index',function(S,Node,Event,Richbase,Overl
             /**
             是否支持多选
 
-            @attribute mutiple
+            @attribute multiple
             @type boolean
             @default false
             @optional
             */
-    		mutiple : {
+    		multiple : {
     			value : false
     		},
             /**
