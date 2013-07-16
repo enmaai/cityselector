@@ -9,7 +9,7 @@ city-selector是一个简单的城市选择器，支持国内国际城市，支�
 
 ## 演示
 
-[http://gallery.kissyui.com/city-selector/1.0/demo/index.html](demo)
+[DEMO](http://gallery.kissyui.com/city-selector/1.0/demo/index.html)
 
 ## 快速使用
 
