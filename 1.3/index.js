@@ -488,6 +488,8 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
                 _._node.detach('click',_.nodePropagationHandler);
                 _._node.detach('focus',_.nodeFocusHandler);
                 _._node = node;
+                _._selected = [];
+                _._selectedValues = [];
                 _._bindInput();
             }
         },

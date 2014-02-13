@@ -510,6 +510,8 @@ KISSY.add('gallery/cityselector/1.3/index',function(S,Node,Event,Richbase,Overla
                 _._node.detach('click',_.nodePropagationHandler);
                 _._node.detach('focus',_.nodeFocusHandler);
                 _._node = node;
+                _._selected = [];
+                _._selectedValues = [];
                 _._bindInput();
             }
         },
