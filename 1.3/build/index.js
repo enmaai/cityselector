@@ -591,6 +591,7 @@ KISSY.add('gallery/cityselector/1.3/index',function(S,Node,Event,Richbase,Overla
         *
         * @method select
         * @param {Array|String} string 城市名称，如'北京'或['北京','太原']
+        * @param {boolean} verbose 是否静默，如果为true，则不触发select事件
         * @return {CitySelector} this，当前实例
         * @example
 
@@ -600,7 +601,7 @@ KISSY.add('gallery/cityselector/1.3/index',function(S,Node,Event,Richbase,Overla
 
         * @chainable
         */
-        select : function(string){
+        select : function(string,verbose){
             var _ = this;
             if(S.isArray(string)){
                 S.each(string,function(item){
@@ -633,13 +634,15 @@ KISSY.add('gallery/cityselector/1.3/index',function(S,Node,Event,Richbase,Overla
                     <dt>raw</dt><dd>用户选中的值对应的元数据</dd>
                     </dl>
                     */
-                    this.fire('select',{
-                        data : {
-                            type : type,
-                            value : string,
-                            raw : this._formatData[id]
-                        }                    
-                    });
+                    if(!verbose){
+                        this.fire('select',{
+                            data : {
+                                type : type,
+                                value : string,
+                                raw : this._formatData[id]
+                            }                    
+                        });
+                    }
                     if(this.get('multiple')){
                         this._selected.push(node);
                         this._selectedValues.push(string);
@@ -659,10 +662,11 @@ KISSY.add('gallery/cityselector/1.3/index',function(S,Node,Event,Richbase,Overla
         *
         * @method unSelect
         * @param {Array|String} string 城市名称，如'北京'或['北京','太原']
+        * @param {boolean} verbose 是否静默
         * @return {CitySelector} this，当前实例
         * @chainable
         */
-        unSelect : function(string){
+        unSelect : function(string,verbose){
             var _ = this;
             if(S.isArray(string)){
                 S.each(string,function(item){
@@ -695,13 +699,16 @@ KISSY.add('gallery/cityselector/1.3/index',function(S,Node,Event,Richbase,Overla
                     <dt>raw</dt><dd>用户取消的值对应的元数据</dd>
                     </dl>
                     */
-                    this.fire('unselect',{
-                        data : {
-                            type : type,
-                            value : string,
-                            raw : this._formatData[id]
-                        }                    
-                    });
+                    if(!verbose){
+                        this.fire('unselect',{
+                            data : {
+                                type : type,
+                                value : string,
+                                raw : this._formatData[id]
+                            }                    
+                        });
+                    }
+                    
                     if(this.get('multiple')){
                         var tmpNode = [],
                             tmpString = [],

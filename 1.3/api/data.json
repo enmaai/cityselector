@@ -367,7 +367,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 516,
+            "line": 518,
             "description": "设置'width'属性时执行",
             "itemtype": "method",
             "name": "_onSetWidth",
@@ -378,7 +378,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 528,
+            "line": 530,
             "description": "设置'height'属性时执行",
             "itemtype": "method",
             "name": "_onSetAutoHeight",
@@ -389,7 +389,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 542,
+            "line": 544,
             "description": "根据指定的字母切换到相应字母filter",
             "itemtype": "method",
             "name": "setLetter",
@@ -413,7 +413,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 565,
+            "line": 567,
             "description": "显示城市选择器",
             "itemtype": "method",
             "name": "show",
@@ -427,7 +427,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 576,
+            "line": 578,
             "description": "隐藏城市选择器",
             "itemtype": "method",
             "name": "hide",
@@ -441,7 +441,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 587,
+            "line": 589,
             "description": "选中指定城市",
             "itemtype": "method",
             "name": "select",
@@ -450,6 +450,11 @@
                     "name": "string",
                     "description": "城市名称，如'北京'或['北京','太原']",
                     "type": "Array|String"
+                },
+                {
+                    "name": "verbose",
+                    "description": "是否静默，如果为true，则不触发select事件",
+                    "type": "Boolean"
                 }
             ],
             "return": {
@@ -465,7 +470,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 624,
+            "line": 627,
             "description": "当用户选择时触发",
             "itemtype": "event",
             "name": "select",
@@ -481,7 +486,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 655,
+            "line": 660,
             "description": "取消选中指定城市，与select相反",
             "itemtype": "method",
             "name": "unSelect",
@@ -490,6 +495,11 @@
                     "name": "string",
                     "description": "城市名称，如'北京'或['北京','太原']",
                     "type": "Array|String"
+                },
+                {
+                    "name": "verbose",
+                    "description": "是否静默",
+                    "type": "Boolean"
                 }
             ],
             "return": {
@@ -502,7 +512,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 686,
+            "line": 692,
             "description": "当用户取消选择时触发",
             "itemtype": "event",
             "name": "unselect",
@@ -518,7 +528,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 726,
+            "line": 735,
             "description": "获取用户当前已经选中的城市列表",
             "itemtype": "method",
             "name": "getSelected",
@@ -531,7 +541,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 737,
+            "line": 746,
             "description": "设置城市选择器的触发方式，在不设置render的情况下有效，会以overlay的方式呈现",
             "itemtype": "attribute",
             "name": "triggerType",
@@ -544,7 +554,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 749,
+            "line": 758,
             "description": "设置城市选择器的宽度",
             "itemtype": "attribute",
             "name": "width",
@@ -556,7 +566,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 760,
+            "line": 769,
             "description": "设置城市选择器的高度",
             "itemtype": "attribute",
             "name": "height",
@@ -568,7 +578,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 771,
+            "line": 780,
             "description": "城市选择器默认宽度与input一致",
             "itemtype": "attribute",
             "name": "autoWidth",
@@ -580,7 +590,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 782,
+            "line": 791,
             "description": "是否支持多选",
             "itemtype": "attribute",
             "name": "multiple",
@@ -592,7 +602,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 793,
+            "line": 802,
             "description": "省是否可以选择",
             "itemtype": "attribute",
             "name": "canProvinceSelect",
@@ -604,7 +614,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 804,
+            "line": 813,
             "description": "设置城市选择器的class前缀，只设置了一个，如果需要自定义样式，可使用此命名空间重置",
             "itemtype": "attribute",
             "name": "prefixCls",
@@ -617,7 +627,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 816,
+            "line": 825,
             "description": "城市选择器需要的数据",
             "itemtype": "attribute",
             "name": "data",
@@ -628,7 +638,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 826,
+            "line": 835,
             "description": "是否启用select联动功能，启用后需要提供两个select节点",
             "itemtype": "attribute",
             "name": "linkage",
@@ -641,7 +651,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 838,
+            "line": 847,
             "description": "启用select联动功能后的省份select节点(国外对应国家)",
             "itemtype": "attribute",
             "name": "countrySelect",
@@ -653,7 +663,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 848,
+            "line": 857,
             "description": "启用select联动功能后的城市select节点(国外对应州、城市)",
             "itemtype": "attribute",
             "name": "citySelect",
@@ -665,7 +675,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 858,
+            "line": 867,
             "description": "启用select联动功能后的默认国家或者省",
             "itemtype": "attribute",
             "name": "defaultLinkageCountry",
@@ -677,7 +687,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 868,
+            "line": 877,
             "description": "城市选择器所需要绑定的input节点",
             "itemtype": "attribute",
             "name": "node",
@@ -688,7 +698,7 @@
         },
         {
             "file": "1.3/build/index.js",
-            "line": 875,
+            "line": 884,
             "description": "城市选择器渲染的父容器，如果不提供则使用overlay方式",
             "itemtype": "attribute",
             "name": "render",
