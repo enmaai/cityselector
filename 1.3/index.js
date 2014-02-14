@@ -282,11 +282,8 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
                 listheight : this.get(HEIGHT) - 50
             };
             
-            this._contentEl = S.one(TMPL.render(obj));
-            this._navEl = this._contentEl.one('#ks-cityselector'+this._id+'-nav');
-            this._listEl = this._contentEl.one('#ks-cityselector'+this._id+'-citylist');
             if(this._renderNode){
-                this._renderNode.append(this._contentEl);
+                this._renderNode.append(TMPL.render(obj));
             }else{
                 // this._overlay = new Overlay.Popup({
                 //     prefixCls : 'ks-cityselector-',
@@ -300,13 +297,14 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
                 //     },
                 //     content : this._contentEl
                 // });
-                // 
+                
                 this._overlay = new Overlay({
-                    prefixCls : 'ks-cityselector',
+                    prefixCls : 'ks-cityselector-',
                     width : w,
                     visible : false,
-                    content : this._contentEl
-                });
+                    //srcNode : srcNode
+                    content : TMPL.render(obj)
+                }).render();
               
                 this._overlay.on('show',function(){
                     _._overlay.set('align',{
@@ -317,6 +315,9 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
                     _._checkCity();
                 });
             }
+            this._contentEl = S.one('#ks-cityselector'+this._id);
+            this._navEl = this._contentEl.one('#ks-cityselector'+this._id+'-nav');
+            this._listEl = this._contentEl.one('#ks-cityselector'+this._id+'-citylist');
             return this;
         },
         /**
