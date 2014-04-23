@@ -43,6 +43,8 @@
             
                 <li><a href="../classes/CitySelector.html">CitySelector</a></li>
             
+                <li><a href="../classes/Linkage.html">Linkage</a></li>
+            
             </ul>
 
             <ul id="api-modules" class="apis modules">
@@ -159,9 +161,14 @@ KISSY.add(&#x27;gallery/cityselector/1.2/index&#x27;,function(S,Node,Event,Richb
     * 城市选择器constructor
 
         &lt;input id=&quot;#foo&quot; type=&quot;text&quot;&gt;    
-        KISSY.use(&#x27;gallery/cityselector/1.3/index&#x27;,function(S,CitySelector){
+        KISSY.use(&#x27;gallery/cityselector/1.2/index&#x27;,function(S,CitySelector){
         var cityselector = new CitySelector({
-            node : &#x27;#foo&#x27;
+            provinceSelect : &#x27;#foo3&#x27;,
+            citySelect : &#x27;#foo4&#x27;,
+            districtSelect : &#x27;#foo10&#x27;,
+            // province : &#x27;黑龙江省&#x27;,
+            // city : &#x27;大庆市&#x27;,
+            // district : &#x27;红岗区&#x27;
         });
 
     *

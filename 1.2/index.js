@@ -43,9 +43,14 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
     * 城市选择器constructor
 
         <input id="#foo" type="text">    
-        KISSY.use('gallery/cityselector/1.3/index',function(S,CitySelector){
+        KISSY.use('gallery/cityselector/1.2/index',function(S,CitySelector){
         var cityselector = new CitySelector({
-            node : '#foo'
+            provinceSelect : '#foo3',
+            citySelect : '#foo4',
+            districtSelect : '#foo10',
+            // province : '黑龙江省',
+            // city : '大庆市',
+            // district : '红岗区'
         });
 
     *

@@ -43,6 +43,8 @@
             
                 <li><a href="../classes/CitySelector.html">CitySelector</a></li>
             
+                <li><a href="../classes/Linkage.html">Linkage</a></li>
+            
             </ul>
 
             <ul id="api-modules" class="apis modules">
@@ -118,9 +120,14 @@
 <div class="box intro">
     <p>城市选择器constructor</p>
 <pre class="code prettyprint"><code>   &lt;input id=&quot;#foo&quot; type=&quot;text&quot;&gt;    
-   KISSY.use(&#39;gallery/cityselector/1.3/index&#39;,function(S,CitySelector){
+   KISSY.use(&#39;gallery/cityselector/1.2/index&#39;,function(S,CitySelector){
    var cityselector = new CitySelector({
-       node : &#39;#foo&#39;
+       provinceSelect : &#39;#foo3&#39;,
+       citySelect : &#39;#foo4&#39;,
+       districtSelect : &#39;#foo10&#39;,
+       // province : &#39;黑龙江省&#39;,
+       // city : &#39;大庆市&#39;,
+       // district : &#39;红岗区&#39;
    });</code></pre>
 
 </div>
@@ -491,7 +498,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l110"><code>1.2&#x2F;build&#x2F;index.js:110</code></a>
+        <a href="../files/1.2_build_index.js.html#l115"><code>1.2&#x2F;build&#x2F;index.js:115</code></a>
         
         </p>
 
@@ -548,7 +555,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l132"><code>1.2&#x2F;build&#x2F;index.js:132</code></a>
+        <a href="../files/1.2_build_index.js.html#l137"><code>1.2&#x2F;build&#x2F;index.js:137</code></a>
         
         </p>
 
@@ -605,7 +612,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l323"><code>1.2&#x2F;build&#x2F;index.js:323</code></a>
+        <a href="../files/1.2_build_index.js.html#l328"><code>1.2&#x2F;build&#x2F;index.js:328</code></a>
         
         </p>
 
@@ -672,7 +679,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l395"><code>1.2&#x2F;build&#x2F;index.js:395</code></a>
+        <a href="../files/1.2_build_index.js.html#l400"><code>1.2&#x2F;build&#x2F;index.js:400</code></a>
         
         </p>
 
@@ -769,7 +776,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l369"><code>1.2&#x2F;build&#x2F;index.js:369</code></a>
+        <a href="../files/1.2_build_index.js.html#l374"><code>1.2&#x2F;build&#x2F;index.js:374</code></a>
         
         </p>
 
@@ -875,7 +882,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l260"><code>1.2&#x2F;build&#x2F;index.js:260</code></a>
+        <a href="../files/1.2_build_index.js.html#l265"><code>1.2&#x2F;build&#x2F;index.js:265</code></a>
         
         </p>
 
@@ -955,7 +962,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l446"><code>1.2&#x2F;build&#x2F;index.js:446</code></a>
+        <a href="../files/1.2_build_index.js.html#l451"><code>1.2&#x2F;build&#x2F;index.js:451</code></a>
         
         </p>
 
@@ -1012,7 +1019,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l406"><code>1.2&#x2F;build&#x2F;index.js:406</code></a>
+        <a href="../files/1.2_build_index.js.html#l411"><code>1.2&#x2F;build&#x2F;index.js:411</code></a>
         
         </p>
 
@@ -1069,7 +1076,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l419"><code>1.2&#x2F;build&#x2F;index.js:419</code></a>
+        <a href="../files/1.2_build_index.js.html#l424"><code>1.2&#x2F;build&#x2F;index.js:424</code></a>
         
         </p>
 
@@ -1126,7 +1133,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l437"><code>1.2&#x2F;build&#x2F;index.js:437</code></a>
+        <a href="../files/1.2_build_index.js.html#l442"><code>1.2&#x2F;build&#x2F;index.js:442</code></a>
         
         </p>
 
@@ -1187,7 +1194,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l149"><code>1.2&#x2F;build&#x2F;index.js:149</code></a>
+        <a href="../files/1.2_build_index.js.html#l154"><code>1.2&#x2F;build&#x2F;index.js:154</code></a>
         
         </p>
 
@@ -1268,7 +1275,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l339"><code>1.2&#x2F;build&#x2F;index.js:339</code></a>
+        <a href="../files/1.2_build_index.js.html#l344"><code>1.2&#x2F;build&#x2F;index.js:344</code></a>
         
         </p>
 
@@ -1358,7 +1365,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l354"><code>1.2&#x2F;build&#x2F;index.js:354</code></a>
+        <a href="../files/1.2_build_index.js.html#l359"><code>1.2&#x2F;build&#x2F;index.js:359</code></a>
         
         </p>
 
@@ -1448,7 +1455,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l275"><code>1.2&#x2F;build&#x2F;index.js:275</code></a>
+        <a href="../files/1.2_build_index.js.html#l280"><code>1.2&#x2F;build&#x2F;index.js:280</code></a>
         
         </p>
 
@@ -1539,7 +1546,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l311"><code>1.2&#x2F;build&#x2F;index.js:311</code></a>
+        <a href="../files/1.2_build_index.js.html#l316"><code>1.2&#x2F;build&#x2F;index.js:316</code></a>
         
         </p>
 
@@ -1621,7 +1628,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l648"><code>1.2&#x2F;build&#x2F;index.js:648</code></a>
+        <a href="../files/1.2_build_index.js.html#l653"><code>1.2&#x2F;build&#x2F;index.js:653</code></a>
         
         </p>
 
@@ -1696,7 +1703,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l491"><code>1.2&#x2F;build&#x2F;index.js:491</code></a>
+        <a href="../files/1.2_build_index.js.html#l496"><code>1.2&#x2F;build&#x2F;index.js:496</code></a>
         
         </p>
 
@@ -1771,7 +1778,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l187"><code>1.2&#x2F;build&#x2F;index.js:187</code></a>
+        <a href="../files/1.2_build_index.js.html#l192"><code>1.2&#x2F;build&#x2F;index.js:192</code></a>
         
         </p>
 
@@ -1862,7 +1869,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l502"><code>1.2&#x2F;build&#x2F;index.js:502</code></a>
+        <a href="../files/1.2_build_index.js.html#l507"><code>1.2&#x2F;build&#x2F;index.js:507</code></a>
         
         </p>
 
@@ -1998,7 +2005,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l457"><code>1.2&#x2F;build&#x2F;index.js:457</code></a>
+        <a href="../files/1.2_build_index.js.html#l462"><code>1.2&#x2F;build&#x2F;index.js:462</code></a>
         
         </p>
 
@@ -2107,7 +2114,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l480"><code>1.2&#x2F;build&#x2F;index.js:480</code></a>
+        <a href="../files/1.2_build_index.js.html#l485"><code>1.2&#x2F;build&#x2F;index.js:485</code></a>
         
         </p>
 
@@ -2198,7 +2205,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l573"><code>1.2&#x2F;build&#x2F;index.js:573</code></a>
+        <a href="../files/1.2_build_index.js.html#l578"><code>1.2&#x2F;build&#x2F;index.js:578</code></a>
         
         </p>
 
@@ -2317,7 +2324,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l693"><code>1.2&#x2F;build&#x2F;index.js:693</code></a>
+        <a href="../files/1.2_build_index.js.html#l698"><code>1.2&#x2F;build&#x2F;index.js:698</code></a>
         
         </p>
 
@@ -2373,7 +2380,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l715"><code>1.2&#x2F;build&#x2F;index.js:715</code></a>
+        <a href="../files/1.2_build_index.js.html#l720"><code>1.2&#x2F;build&#x2F;index.js:720</code></a>
         
         </p>
 
@@ -2427,7 +2434,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l738"><code>1.2&#x2F;build&#x2F;index.js:738</code></a>
+        <a href="../files/1.2_build_index.js.html#l743"><code>1.2&#x2F;build&#x2F;index.js:743</code></a>
         
         </p>
 
@@ -2481,7 +2488,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l682"><code>1.2&#x2F;build&#x2F;index.js:682</code></a>
+        <a href="../files/1.2_build_index.js.html#l687"><code>1.2&#x2F;build&#x2F;index.js:687</code></a>
         
         </p>
 
@@ -2537,7 +2544,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l704"><code>1.2&#x2F;build&#x2F;index.js:704</code></a>
+        <a href="../files/1.2_build_index.js.html#l709"><code>1.2&#x2F;build&#x2F;index.js:709</code></a>
         
         </p>
 
@@ -2591,7 +2598,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l748"><code>1.2&#x2F;build&#x2F;index.js:748</code></a>
+        <a href="../files/1.2_build_index.js.html#l753"><code>1.2&#x2F;build&#x2F;index.js:753</code></a>
         
         </p>
 
@@ -2645,7 +2652,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l726"><code>1.2&#x2F;build&#x2F;index.js:726</code></a>
+        <a href="../files/1.2_build_index.js.html#l731"><code>1.2&#x2F;build&#x2F;index.js:731</code></a>
         
         </p>
 
@@ -2701,7 +2708,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l755"><code>1.2&#x2F;build&#x2F;index.js:755</code></a>
+        <a href="../files/1.2_build_index.js.html#l760"><code>1.2&#x2F;build&#x2F;index.js:760</code></a>
         
         </p>
 
@@ -2755,7 +2762,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l659"><code>1.2&#x2F;build&#x2F;index.js:659</code></a>
+        <a href="../files/1.2_build_index.js.html#l664"><code>1.2&#x2F;build&#x2F;index.js:664</code></a>
         
         </p>
 
@@ -2811,7 +2818,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l671"><code>1.2&#x2F;build&#x2F;index.js:671</code></a>
+        <a href="../files/1.2_build_index.js.html#l676"><code>1.2&#x2F;build&#x2F;index.js:676</code></a>
         
         </p>
 
@@ -2866,7 +2873,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l292"><code>1.2&#x2F;build&#x2F;index.js:292</code></a>
+        <a href="../files/1.2_build_index.js.html#l297"><code>1.2&#x2F;build&#x2F;index.js:297</code></a>
         
         </p>
 
@@ -2936,7 +2943,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l540"><code>1.2&#x2F;build&#x2F;index.js:540</code></a>
+        <a href="../files/1.2_build_index.js.html#l545"><code>1.2&#x2F;build&#x2F;index.js:545</code></a>
         
         </p>
 
@@ -3008,7 +3015,7 @@
             
         
         
-        <a href="../files/1.2_build_index.js.html#l605"><code>1.2&#x2F;build&#x2F;index.js:605</code></a>
+        <a href="../files/1.2_build_index.js.html#l610"><code>1.2&#x2F;build&#x2F;index.js:610</code></a>
         
         </p>
 

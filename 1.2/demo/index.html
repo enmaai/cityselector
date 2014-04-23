@@ -50,18 +50,22 @@
                 });
                 S.one('#setprovince').on('click',function(e){
                     cityselector.set('province','山西省');
-                    console.log(cityselector.get('province'));
                 });
                 S.one('#setcity').on('click',function(e){
                     cityselector.set('city','太原市');
-                    console.log(cityselector);
                 });
                 S.one('#setdistrict').on('click',function(e){
                     cityselector.set('district','迎泽区');
-                    console.log(cityselector);
                 });
                 cityselector.on('afterProvinceChange',function(e){
-                    console.log(e);
+                    S.log(e);
+                    S.log(e.setBySelectChange)
+                });
+                cityselector.on('afterCityChange',function(e){
+                    S.log(e);
+                });
+                cityselector.on('afterDistrictChange',function(e){
+                    S.log(e);
                 })
             });
         </script>

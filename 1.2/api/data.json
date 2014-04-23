@@ -33,6 +33,22 @@
             },
             "fors": {},
             "namespaces": {}
+        },
+        "1.2/build/linkage-data.js": {
+            "name": "1.2/build/linkage-data.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "1.2/build/linkage.js": {
+            "name": "1.2/build/linkage.js",
+            "modules": {},
+            "classes": {
+                "Linkage": 1
+            },
+            "fors": {},
+            "namespaces": {}
         }
     },
     "modules": {
@@ -68,13 +84,14 @@
             "name": "cityselector",
             "submodules": {},
             "classes": {
-                "CitySelector": 1
+                "CitySelector": 1,
+                "Linkage": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "1.2/build/index.js",
-            "line": 64,
+            "file": "1.2/build/linkage.js",
+            "line": 47,
             "description": "城市选择器，支持国内和国际城市，也可以自定义城市数据",
             "author": "freyaoo@gmail.com",
             "version": "1.2"
@@ -93,15 +110,31 @@
             "namespace": "",
             "file": "1.2/build/index.js",
             "line": 64,
-            "description": "城市选择器constructor\n\n       <input id=\"#foo\" type=\"text\">    \n       KISSY.use('gallery/cityselector/1.3/index',function(S,CitySelector){\n       var cityselector = new CitySelector({\n           node : '#foo'\n       });",
+            "description": "城市选择器constructor\n\n       <input id=\"#foo\" type=\"text\">    \n       KISSY.use('gallery/cityselector/1.2/index',function(S,CitySelector){\n       var cityselector = new CitySelector({\n           provinceSelect : '#foo3',\n           citySelect : '#foo4',\n           districtSelect : '#foo10',\n           // province : '黑龙江省',\n           // city : '大庆市',\n           // district : '红岗区'\n       });",
             "extends": "RichBase",
+            "is_constructor": 1
+        },
+        "Linkage": {
+            "name": "Linkage",
+            "shortname": "Linkage",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cityselector",
+            "namespace": "",
+            "file": "1.2/build/linkage.js",
+            "line": 47,
+            "description": "城市联动选择器constructor\n\n       <select id=\"province1\"></select>    \n       <select id=\"city1\"></select>    \n       <select id=\"district1\"></select>    \n       KISSY.use('gallery/cityselector/1.2/linkage',function(S,CityLinkage){\n       var cityselector = new CityLinkage({\n           provinceSelect : '#province1',\n           citySelect : '#city1',\n           districtSelect : '#district1',\n           province : '黑龙江省',\n           city : '大庆市',\n           district : '红岗区'\n       });\n       cityselector.on('afterPronvinceChange',function(e){\n           console.log(e.newVal);\n           console.log(e.oldVal);\n       });",
+            "extends": "Base",
             "is_constructor": 1
         }
     },
     "classitems": [
         {
             "file": "1.2/build/index.js",
-            "line": 110,
+            "line": 115,
             "description": "绑定需要的事件",
             "itemtype": "method",
             "name": "_bind",
@@ -112,7 +145,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 132,
+            "line": 137,
             "description": "绑定input节点相关事件",
             "itemtype": "method",
             "name": "_bindInput",
@@ -123,7 +156,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 149,
+            "line": 154,
             "description": "预处理城市数据，主要是为了后面的dom操作方便",
             "itemtype": "method",
             "name": "_prepareData",
@@ -138,7 +171,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 187,
+            "line": 192,
             "description": "渲染城市选择器",
             "itemtype": "method",
             "name": "render",
@@ -152,7 +185,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 260,
+            "line": 265,
             "description": "选择字母筛选触发的处理方法",
             "itemtype": "method",
             "name": "_letterFilter",
@@ -170,7 +203,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 275,
+            "line": 280,
             "description": "根据指定的字母处理dom",
             "itemtype": "method",
             "name": "_setLetter",
@@ -188,7 +221,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 292,
+            "line": 297,
             "description": "当用户切换首字母时触发",
             "itemtype": "event",
             "name": "letterchange",
@@ -204,7 +237,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 311,
+            "line": 316,
             "description": "收起或展开省下面的城市",
             "itemtype": "method",
             "name": "_toggleOrExpand",
@@ -222,7 +255,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 323,
+            "line": 328,
             "description": "根据输入框里已存在的城市选中城市选择器中的城市",
             "itemtype": "method",
             "name": "_checkCity",
@@ -233,7 +266,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 339,
+            "line": 344,
             "description": "选中城市时的事件执行",
             "itemtype": "method",
             "name": "_selectCity",
@@ -251,7 +284,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 354,
+            "line": 359,
             "description": "选中省(国际对应国家)时的事件执行",
             "itemtype": "method",
             "name": "_selectProvince",
@@ -269,7 +302,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 369,
+            "line": 374,
             "description": "根据传入的节点和类型填充input",
             "itemtype": "method",
             "name": "_fillInput",
@@ -294,7 +327,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 395,
+            "line": 400,
             "description": "根据传入的节点取消城市选择",
             "itemtype": "method",
             "name": "_delCity",
@@ -312,7 +345,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 406,
+            "line": 411,
             "description": "设置'autoWidth'属性时执行",
             "itemtype": "method",
             "name": "_onSetAutoWidth",
@@ -323,7 +356,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 419,
+            "line": 424,
             "description": "设置'node'时执行",
             "itemtype": "method",
             "name": "_onSetNode",
@@ -334,7 +367,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 437,
+            "line": 442,
             "description": "设置'width'属性时执行",
             "itemtype": "method",
             "name": "_onSetWidth",
@@ -345,7 +378,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 446,
+            "line": 451,
             "description": "设置'height'属性时执行",
             "itemtype": "method",
             "name": "_onSetAutoHeight",
@@ -356,7 +389,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 457,
+            "line": 462,
             "description": "根据指定的字母切换到相应字母filter",
             "itemtype": "method",
             "name": "setLetter",
@@ -380,7 +413,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 480,
+            "line": 485,
             "description": "显示城市选择器",
             "itemtype": "method",
             "name": "show",
@@ -394,7 +427,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 491,
+            "line": 496,
             "description": "隐藏城市选择器",
             "itemtype": "method",
             "name": "hide",
@@ -408,7 +441,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 502,
+            "line": 507,
             "description": "选中指定城市",
             "itemtype": "method",
             "name": "select",
@@ -437,7 +470,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 540,
+            "line": 545,
             "description": "当用户选择时触发",
             "itemtype": "event",
             "name": "select",
@@ -453,7 +486,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 573,
+            "line": 578,
             "description": "取消选中指定城市，与select相反",
             "itemtype": "method",
             "name": "unSelect",
@@ -479,7 +512,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 605,
+            "line": 610,
             "description": "当用户取消选择时触发",
             "itemtype": "event",
             "name": "unselect",
@@ -495,7 +528,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 648,
+            "line": 653,
             "description": "获取用户当前已经选中的城市列表",
             "itemtype": "method",
             "name": "getSelected",
@@ -508,7 +541,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 659,
+            "line": 664,
             "description": "设置城市选择器的触发方式，在不设置render的情况下有效，会以overlay的方式呈现",
             "itemtype": "attribute",
             "name": "triggerType",
@@ -521,7 +554,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 671,
+            "line": 676,
             "description": "设置城市选择器的宽度",
             "itemtype": "attribute",
             "name": "width",
@@ -533,7 +566,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 682,
+            "line": 687,
             "description": "设置城市选择器的高度",
             "itemtype": "attribute",
             "name": "height",
@@ -545,7 +578,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 693,
+            "line": 698,
             "description": "城市选择器默认宽度与input一致",
             "itemtype": "attribute",
             "name": "autoWidth",
@@ -557,7 +590,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 704,
+            "line": 709,
             "description": "是否支持多选",
             "itemtype": "attribute",
             "name": "multiple",
@@ -569,7 +602,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 715,
+            "line": 720,
             "description": "省是否可以选择",
             "itemtype": "attribute",
             "name": "canProvinceSelect",
@@ -581,7 +614,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 726,
+            "line": 731,
             "description": "设置城市选择器的class前缀，只设置了一个，如果需要自定义样式，可使用此命名空间重置",
             "itemtype": "attribute",
             "name": "prefixCls",
@@ -594,7 +627,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 738,
+            "line": 743,
             "description": "城市选择器需要的数据",
             "itemtype": "attribute",
             "name": "data",
@@ -605,7 +638,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 748,
+            "line": 753,
             "description": "城市选择器所需要绑定的input节点",
             "itemtype": "attribute",
             "name": "node",
@@ -616,7 +649,7 @@
         },
         {
             "file": "1.2/build/index.js",
-            "line": 755,
+            "line": 760,
             "description": "城市选择器渲染的父容器，如果不提供则使用overlay方式",
             "itemtype": "attribute",
             "name": "render",
@@ -624,6 +657,187 @@
             "writeonce": "",
             "optional": 1,
             "class": "CitySelector",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 32,
+            "description": "Data为联动城市数据，为可扩展数组，0为code，1为名称，最后为下一级的数据\n如果需要扩展请扩展最后最后一级的前面 即length-1前面的数据无穷扩展",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 89,
+            "description": "第一次初始化填充默认省市数据",
+            "itemtype": "method",
+            "name": "_render",
+            "priviate": "",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 100,
+            "description": "绑定事件",
+            "itemtype": "method",
+            "name": "_bind",
+            "access": "private",
+            "tagname": "",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 128,
+            "description": "填充省份并选中",
+            "itemtype": "method",
+            "name": "_fillAndSelectProvince",
+            "access": "private",
+            "tagname": "",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 146,
+            "description": "填充城市并选中",
+            "itemtype": "method",
+            "name": "_fillAndSelectCity",
+            "params": [
+                {
+                    "name": "isNeedSet",
+                    "description": "是否需要set city",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "isTriggerBySelectChange",
+                    "description": "是否由select change事件触发",
+                    "type": "Boolean"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 177,
+            "description": "填充地区并选中",
+            "itemtype": "method",
+            "name": "_fillAndSelectDistrict",
+            "params": [
+                {
+                    "name": "isNeedSet",
+                    "description": "是否需要set district",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "isTriggerBySelectChange",
+                    "description": "是否由select change触发",
+                    "type": "Boolean"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 209,
+            "description": "选中省份",
+            "itemtype": "method",
+            "name": "_selectProvince",
+            "access": "private",
+            "tagname": "",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 227,
+            "description": "选中城市",
+            "itemtype": "method",
+            "name": "_selectCity",
+            "access": "private",
+            "tagname": "",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 245,
+            "description": "选中地区",
+            "itemtype": "method",
+            "name": "_selectDistrict",
+            "access": "private",
+            "tagname": "",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 324,
+            "description": "需要选中的省",
+            "itemtype": "attribute",
+            "name": "province",
+            "type": "string",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 330,
+            "description": "需要选中的市",
+            "itemtype": "attribute",
+            "name": "city",
+            "type": "string",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 336,
+            "description": "需要选中的地区",
+            "itemtype": "attribute",
+            "name": "district",
+            "type": "string",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 342,
+            "description": "渲染省的select节点",
+            "itemtype": "attribute",
+            "name": "provinceSelect",
+            "type": "HTMLelement|node|selector",
+            "writeonce": "",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 349,
+            "description": "渲染市的select节点",
+            "itemtype": "attribute",
+            "name": "citySelect",
+            "type": "HTMLelement|node|selector",
+            "writeonce": "",
+            "class": "Linkage",
+            "module": "cityselector"
+        },
+        {
+            "file": "1.2/build/linkage.js",
+            "line": 356,
+            "description": "渲染地区的select节点",
+            "itemtype": "attribute",
+            "name": "districtSelect",
+            "type": "HTMLelement|node|selector",
+            "writeonce": "",
+            "class": "Linkage",
             "module": "cityselector"
         }
     ],
@@ -655,6 +869,26 @@
         {
             "message": "unknown tag: version",
             "line": " 1.2/build/index.js:23"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " 1.2/build/linkage-data.js:7"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " 1.2/build/linkage.js:8"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " 1.2/build/linkage.js:22"
+        },
+        {
+            "message": "unknown tag: priviate",
+            "line": " 1.2/build/linkage.js:89"
+        },
+        {
+            "message": "Missing item type\nData为联动城市数据，为可扩展数组，0为code，1为名称，最后为下一级的数据\n如果需要扩展请扩展最后最后一级的前面 即length-1前面的数据无穷扩展",
+            "line": " 1.2/build/linkage.js:32"
         }
     ]
 }
