@@ -749,7 +749,7 @@ KISSY.add('gallery/cityselector/1.3/index',function(S,Node,Event,Richbase,Overla
             */
             data : {
                 value : DomesticData
-            },
+            }
             /**
             城市选择器所需要绑定的input节点
 

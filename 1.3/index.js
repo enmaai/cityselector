@@ -727,7 +727,7 @@ KISSY.add(function(S,Node,Event,Richbase,Overlay,Xtpl,DomesticData){
             */
             data : {
                 value : DomesticData
-            },
+            }
             /**
             城市选择器所需要绑定的input节点
 
