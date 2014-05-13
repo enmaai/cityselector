@@ -780,7 +780,7 @@
         },
         {
             "file": "1.3/build/linkage.js",
-            "line": 323,
+            "line": 327,
             "description": "需要选中的省",
             "itemtype": "attribute",
             "name": "province",
@@ -790,7 +790,7 @@
         },
         {
             "file": "1.3/build/linkage.js",
-            "line": 329,
+            "line": 333,
             "description": "需要选中的市",
             "itemtype": "attribute",
             "name": "city",
@@ -800,7 +800,7 @@
         },
         {
             "file": "1.3/build/linkage.js",
-            "line": 335,
+            "line": 339,
             "description": "需要选中的地区",
             "itemtype": "attribute",
             "name": "district",
@@ -810,7 +810,7 @@
         },
         {
             "file": "1.3/build/linkage.js",
-            "line": 341,
+            "line": 345,
             "description": "渲染省的select节点",
             "itemtype": "attribute",
             "name": "provinceSelect",
@@ -821,7 +821,7 @@
         },
         {
             "file": "1.3/build/linkage.js",
-            "line": 348,
+            "line": 352,
             "description": "渲染市的select节点",
             "itemtype": "attribute",
             "name": "citySelect",
@@ -832,7 +832,7 @@
         },
         {
             "file": "1.3/build/linkage.js",
-            "line": 355,
+            "line": 359,
             "description": "渲染地区的select节点",
             "itemtype": "attribute",
             "name": "districtSelect",

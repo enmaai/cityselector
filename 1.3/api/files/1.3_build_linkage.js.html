@@ -379,11 +379,15 @@ KISSY.add(&#x27;gallery/cityselector/1.3/linkage&#x27;,function(S,Data,Base){
                 value : DEFAULTPROVINCE,
                 validator : function(val){
                     var inData = false;
-                    S.each(Data,function(item){
-                        if(val == item[1]){
-                            inData = true;
-                        }
-                    });
+                    if(val == DEFAULTPROVINCE){
+                        inData = true;
+                    }else{
+                        S.each(Data,function(item){
+                            if(val == item[1]){
+                                inData = true;
+                            }
+                        });
+                    }
                     return inData;
                 }
             },
